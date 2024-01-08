@@ -1,12 +1,7 @@
-header {
-    background-color: darkgoldenrod;
-    font-size: xx-large;
-    padding: 5px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
+* {
+    background-color: azure;
 }
 
-h2 {
-    font-size: x-large;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+h1{
+    margin: 15px;
 }

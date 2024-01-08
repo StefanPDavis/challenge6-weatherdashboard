@@ -1,7 +1,17 @@
-fetch('https://api.openweathermap.org/data/2.5/forecast?lat=39&lon=-119&appid=7b51adeaefa46b13afad2d8fa4f7189e')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
+function addResult(){
+
+  inputCity = document.getElementById("enterCity").value;  
+  historyList = getInfo();
+  var searchCity =$("<div>") 
+  searchCity.attr('id',inputCity) 
+  searchCity.text(inputCity) 
+  searchCity.addClass("h4")
+
+  
+  if (historyList.includes(inputCity) === false){
+      $(".history").append(searchCity)
+  }
+  $(".subtitle").attr("style","display:inline")
+  addInfo(inputCity);
+  
+}; 
