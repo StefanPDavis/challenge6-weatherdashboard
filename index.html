@@ -12,13 +12,30 @@
         </header>
         <main>
             <h2>Search for a City:</h2>
+            <div class="input-group">
+                <input class="form-control" type="text" id="enterCity"
+                    placeholder="Enter a city">
             <button class="button" id="search-button">
                 Search
               </button>
+              <ul id="searchHistory" class="list-group">
+            </ul>
+            <section>
+                <div id="weatherContent">
+                    <div id="cityDetail">
+                    </div>
+                        <h3>5-Day Forecast:</h3>
+                    <div id="fiveDay">
+                    </div>
+                </div>
+            </div>
+            </section>
         </main>
         <footer>
-            
+            Created by Stefan Davis
         </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="./script.js"></script>
     </body>
 </html>
