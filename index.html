@@ -19,13 +19,13 @@
         
               <div class="card">
                 <h3 class="card-header text-uppercase text-light bg-secondary">Search for a city</h3>
-                <div id="user-form" class="card-body">
+                <div class="card-body">
                   <input type="text" id="myInput" placeholder="Enter a City"/>
                   <button class="btn text-light bg-dark" id="searchBtn">Search</button>
                 </div>
               </div>
         
-              <div class="card history">
+              <div class="card history" id="history">
                 <h3 class="card-header text-uppercase text-light bg-secondary">Search History</h3>
               </div>
             </div>
@@ -34,12 +34,22 @@
               <div>
                 <h2 class="subtitle text-uppercase text-light bg-secondary">Current Weather</h2>
                 <div class="city"></div>
+                <p id="temperature"></p>
+                <p id="humidity"></p>
+                <p id="windSpeed"></p>
+                <p id="UV-index"></p>
               </div>
         
-              <div>
+              <div class="row d-none" id ="fiveDay">
                 <h2 class="subtitle text-uppercase text-light bg-secondary">5 Day forecast</h2>
-                <div class="five-day"></div>
               </div>
+                <div class="row">
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                </div>
             </div>
         </main>
         <footer class="text-center font-weight-bold fixed-bottom">
