@@ -35,7 +35,6 @@ function getResult(){
     $(".city").empty()
 
    inputCity = document.getElementById("myInput").value;   
-    var countryCode='US';    
     var cityCode=inputCity;       
     
     var geoLon;   
@@ -46,7 +45,6 @@ function getResult(){
     var temp = $("<div>")    
     var wind = $("<div>")    
     var humidity = $("<div>")   
-    var uvIndex = $("<div>")  
     var icon =$("<img>")
     icon.addClass("icon");    
     var dateTime = $("<div>")
@@ -60,7 +58,7 @@ function getResult(){
     $(".city").append(humidity)
     
     
-    var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + countryCode + "&limit=5&appid=" + APIKey
+    var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + "&appid=" + APIKey
          
       fetch(geoUrl)
     
@@ -88,25 +86,25 @@ function getResult(){
         
             cityName.text(cityCode);
 
-            var date = new Date(data.list[0].dt * 1000);
-            dateTime.text("("+ (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")");
+            var date = new Date(data.list[0].dt_txt);
+            dateTime.text("("+ (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + ")" + " Time: " + date.getHours() + ":00");
 
             temp.text("Temperature: "+ data.list[0].main.temp + " F");
             humidity.text("Humidity: " + data.list[0].main.humidity + " %");
             wind.text("Wind Speed: " + data.list[0].wind.speed + " MPH");
 
-            for (var i=1;i<6;i++){
+            for (var i=1;i<40;i++){
 
-                var blueContainer = $("<div>")
+                var container = $("<div>")
                 this["futureDate"+i] = $("<h>")
                 this["futureIcon"+i] = $("<img>")
                 this["futureTemp"+i] = $("<div>")
                 this["futureWind"+i] = $("<div>")
                 this["futureHumidity"+i] = $("<div>")
 
-                this["forecastDay"+i] = new Date(data.list[i].dt * 1000);     
+                this["forecastDay"+i] = new Date(data.list[i].dt_txt); 
      
-                (this["futureDate"+i]).text(((this["forecastDay"+i]).getMonth()+1) + "/" + (this["forecastDay"+i]).getDate() + "/" + (this["forecastDay"+i]).getFullYear());
+                (this["futureDate"+i]).text(("(" + (this["forecastDay"+i]).getMonth()+1) + "/" + (this["forecastDay"+i]).getDate() + "/" + (this["forecastDay"+i]).getFullYear() + ")" + " Time: " + (this["forecastDay"+i]).getHours() + ":00");
                 (this["futureTemp"+i]).text("Temperature: "+ data.list[i].main.temp + " F");
                 (this["futureWind"+i]).text("Wind: "+ data.list[i].wind.speed + " MPH");
                 (this["futureHumidity"+i]).text("Humidity: " + data.list[i].main.humidity + " %");
@@ -115,14 +113,14 @@ function getResult(){
                 DateimgSrc = "https://openweathermap.org/img/wn/" + (this["weatherIcon"+i]) + "@2x.png";  
                 (this["futureIcon"+i]).attr('src',DateimgSrc)
 
-                $(".five-day").append(blueContainer)
-                blueContainer.append((this["futureDate"+i]));
-                blueContainer.append((this["futureIcon"+i]));
-                blueContainer.append((this["futureTemp"+i]));
-                blueContainer.append((this["futureWind"+i]));
-                blueContainer.append((this["futureHumidity"+i]));
+                $(".five-day").append(container)
+                container.append((this["futureDate"+i]));
+                container.append((this["futureIcon"+i]));
+                container.append((this["futureTemp"+i]));
+                container.append((this["futureWind"+i]));
+                container.append((this["futureHumidity"+i]));
 
-                blueContainer.addClass("weather-card")
+                container.addClass("weather-card")
             }
 
           })
